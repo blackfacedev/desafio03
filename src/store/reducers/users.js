@@ -10,7 +10,15 @@ const INITIAL_STATE = [
 export default function users(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'ADD_USER':
-      return [...state, { name: action.playload.name }];
+      return [
+        ...state,
+        {
+          name: action.payload.name,
+          id: action.payload.id,
+          avatar_url: action.payload.avatar_url,
+          login: action.payload.login,
+        },
+      ];
     default:
       return state;
   }

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import { connect } from 'react-redux';
 
 const Modal = props => (
   <ReactModal
@@ -79,7 +80,7 @@ const Modal = props => (
             fontSize: '14px',
           }}
           type="button"
-          onClick={props.handleAddUser}
+          onClick={props.addUser}
         >
           Salvar
         </button>
@@ -88,4 +89,15 @@ const Modal = props => (
   </ReactModal>
 );
 
-export default Modal;
+// minha duvida esta aqui !!!!!!
+const mapDispatchToProps = dispatch => ({
+  addUser: payload => dispatch({
+    type: 'ADD_USER',
+    payload,
+  }),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Modal);

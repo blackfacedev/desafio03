@@ -43,12 +43,4 @@ const mapStateToProps = state => ({
   users: state.users,
 });
 
-// minha duvida esta aqui !!!!!!
-const mapDispatchToProps = dispatch => ({
-  addUser: name => dispatch({ type: 'ADD_USER', payload: name }),
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Sidebar);
+export default connect(mapStateToProps)(Sidebar);
