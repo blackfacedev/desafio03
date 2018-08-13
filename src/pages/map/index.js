@@ -112,13 +112,13 @@ class Map extends Component {
           handleMapClick={this.handleMapClick}
           handleCloseModal={this.handleCloseModal}
           handleInputUser={this.handleInputUser}
-          handleAddUser={this.handleAddUser}
+          handleAddUser={this.props.addUser}
         />
         <Sidebar
           users={this.state.users}
           userInput={this.state.userInput}
           handleChangeInput={this.handleChangeInput}
-          handleAddUser={this.handleAddUser}
+          handleAddUser={this.props.addUser}
         />
       </MapGL>
     );
@@ -132,4 +132,11 @@ const mapDispatchToProps = dispatch => ({
   }),
 });
 
-export default connect(mapDispatchToProps)(Map);
+const mapStateToProps = state => ({
+  users: state.users,
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Map);
