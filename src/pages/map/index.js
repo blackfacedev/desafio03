@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
+import { connect } from 'react-redux';
 import Sidebar from '../../components/sidebar';
 import Modal from '../../components/modal';
 import api from '../../services/api';
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-export default class Map extends Component {
+class Map extends Component {
   state = {
     viewport: {
       width: window.innerWidth,
@@ -122,3 +124,12 @@ export default class Map extends Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => ({
+  addUser: payload => dispatch({
+    type: 'ADD_USER',
+    payload,
+  }),
+});
+
+export default connect(mapDispatchToProps)(Map);

@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactModal from 'react-modal';
-import { connect } from 'react-redux';
 
 const Modal = props => (
   <ReactModal
@@ -89,15 +88,4 @@ const Modal = props => (
   </ReactModal>
 );
 
-// minha duvida esta aqui !!!!!!
-const mapDispatchToProps = dispatch => ({
-  addUser: payload => dispatch({
-    type: 'ADD_USER',
-    payload,
-  }),
-});
-
-export default connect(
-  null,
-  mapDispatchToProps,
-)(Modal);
+export default Modal;
