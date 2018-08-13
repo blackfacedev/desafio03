@@ -112,13 +112,13 @@ class Map extends Component {
           handleMapClick={this.handleMapClick}
           handleCloseModal={this.handleCloseModal}
           handleInputUser={this.handleInputUser}
-          handleAddUser={this.props.addUser}
+          handleAddUser={this.handleAddUser}
         />
         <Sidebar
           users={this.state.users}
           userInput={this.state.userInput}
           handleChangeInput={this.handleChangeInput}
-          handleAddUser={this.props.addUser}
+          handleAddUser={this.handleAddUser}
         />
       </MapGL>
     );
