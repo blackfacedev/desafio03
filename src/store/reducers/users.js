@@ -7,6 +7,14 @@ const INITIAL_STATE = [
     latitude: -23.5439948,
     longitude: -46.6065452,
   },
+  {
+    id: 3,
+    avatar_url: 'https://avatars0.githubusercontent.com/u/40779189?v=4',
+    name: 'Marcel LOK',
+    login: 'sdsd',
+    latitude: -76.5439948,
+    longitude: -28.6065452,
+  },
 ];
 
 export default function users(state = INITIAL_STATE, action) {

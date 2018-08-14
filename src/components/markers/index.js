@@ -11,6 +11,9 @@ const Markers = props => (
             borderRadius: 100,
             width: 48,
             height: 48,
+            borderColor: '#7159C1',
+            borderWidth: 4,
+            borderStyle: 'solid',
           }}
           src={user.avatar_url}
           alt="avatar"
