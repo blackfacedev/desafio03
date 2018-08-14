@@ -64,9 +64,7 @@ class Map extends Component {
 
     try {
       const response = await api.get(`/users/${this.state.inputUser}`);
-      this.setState({
-        users: [...this.state.users, response.data],
-      });
+      this.props.addUser(response.data);
       console.log(response);
     } catch (err) {
       console.log(err);

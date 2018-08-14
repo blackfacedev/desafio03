@@ -79,7 +79,7 @@ const Modal = props => (
             fontSize: '14px',
           }}
           type="button"
-          onClick={props.addUser}
+          onClick={props.handleAddUser}
         >
           Salvar
         </button>
