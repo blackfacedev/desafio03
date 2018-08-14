@@ -12,8 +12,8 @@ const INITIAL_STATE = [
     avatar_url: 'https://avatars0.githubusercontent.com/u/40779189?v=4',
     name: 'Marcel LOK',
     login: 'sdsd',
-    latitude: -76.5439948,
-    longitude: -28.6065452,
+    latitude: -23.5439988,
+    longitude: -46.6168888,
   },
 ];
 
