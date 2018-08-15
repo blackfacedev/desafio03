@@ -65,7 +65,7 @@ class Map extends Component {
 
     try {
       const response = await api.get(`/users/${this.state.inputUser}`);
-      this.props.addUser(response.data);
+      this.props.addUser({ ...response.data, ...e.lngLat });
       console.log(response);
     } catch (err) {
       console.log(err);
