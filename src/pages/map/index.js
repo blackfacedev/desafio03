@@ -46,6 +46,7 @@ class Map extends Component {
     const [latitude, longitude] = e.lngLat;
 
     alert(`Latitude: ${latitude} \nLongitude: ${longitude}`);
+    this.props.addUser(latitude, longitude);
     this.setState({
       showModal: true,
     });
@@ -65,7 +66,7 @@ class Map extends Component {
 
     try {
       const response = await api.get(`/users/${this.state.inputUser}`);
-      this.props.addUser({ ...response.data, ...e.lngLat });
+      this.props.addUser(response.data);
       console.log(response);
     } catch (err) {
       console.log(err);
