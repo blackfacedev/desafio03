@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactModal from 'react-modal';
+import PropTypes from 'prop-types';
 
 const Modal = props => (
   <ReactModal
@@ -87,5 +88,12 @@ const Modal = props => (
     </form>
   </ReactModal>
 );
+
+Modal.propTypes = {
+  showModal: PropTypes.func,
+  handleInputUser: PropTypes.func,
+  handleAddUser: PropTypes.func,
+  handleCloseModal: PropTypes.func,
+}.isRequired;
 
 export default Modal;
