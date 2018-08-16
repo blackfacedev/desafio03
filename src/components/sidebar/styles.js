@@ -10,6 +10,9 @@ export const Container = styled.div`
   padding: 20px;
   padding-top: 0;
   height: 90vh;
+  z-index: 99999999999;
+  position: absolute;
+  top: 10px;
 `;
 
 export const User = styled.div`
@@ -34,5 +37,6 @@ export const Info = styled.div`
 `;
 
 export const Action = styled.div`
+  cursor: pointer;
   display: flex;
 `;

@@ -58,6 +58,11 @@ class Map extends Component {
     this.setState({ showModal: false });
   };
 
+  handleDeleteUser = (e) => {
+    alert('Deleta User');
+    this.setState({ showModal: false });
+  };
+
   handleAddUser = async (e) => {
     e.preventDefault();
     const { latitude, longitude } = this.state;
@@ -88,27 +93,31 @@ class Map extends Component {
 
   render() {
     return (
-      <MapGL
-        {...this.state.viewport}
-        onClick={this.handleMapClick}
-        mapStyle="mapbox://styles/mapbox/basic-v9"
-        mapboxApiAccessToken="pk.eyJ1IjoiZGllZ28zZyIsImEiOiJjamh0aHc4em0wZHdvM2tyc3hqbzNvanhrIn0.3HWnXHy_RCi35opzKo8sHQ"
-        onViewportChange={viewport => this.setState({ viewport })}
-      >
-        <Markers onClick={this.handleMapClick} captureClick />
-        <Modal
-          showModal={this.state.showModal}
-          handleMapClick={this.handleMapClick}
-          handleCloseModal={this.handleCloseModal}
-          handleInputUser={this.handleInputUser}
-          handleAddUser={this.handleAddUser}
-        />
+      <div>
+        <MapGL
+          styles={{ zIndex: 1 }}
+          {...this.state.viewport}
+          onClick={this.handleMapClick}
+          mapStyle="mapbox://styles/mapbox/basic-v9"
+          mapboxApiAccessToken="pk.eyJ1IjoiZGllZ28zZyIsImEiOiJjamh0aHc4em0wZHdvM2tyc3hqbzNvanhrIn0.3HWnXHy_RCi35opzKo8sHQ"
+          onViewportChange={viewport => this.setState({ viewport })}
+        >
+          <Markers onClick={this.handleMapClick} captureClick />
+          <Modal
+            showModal={this.state.showModal}
+            handleMapClick={this.handleMapClick}
+            handleCloseModal={this.handleCloseModal}
+            handleInputUser={this.handleInputUser}
+            handleAddUser={this.handleAddUser}
+          />
+        </MapGL>
         <Sidebar
           userInput={this.state.userInput}
           handleChangeInput={this.handleChangeInput}
           handleAddUser={this.handleAddUser}
+          handleDeleteUser={this.handleDeleteUser}
         />
-      </MapGL>
+      </div>
     );
   }
 }

@@ -17,7 +17,11 @@ const Sidebar = props => (
         </Info>
         <Action>
           <span>
-            <i style={{ color: '#D45454', marginRight: '20px' }} className="fa fa-minus-circle" />
+            <i
+              onClick={e => props.handleDeleteUser(e)}
+              style={{ color: '#D45454', marginRight: '20px' }}
+              className="fa fa-minus-circle"
+            />
           </span>
           <span>
             {' '}
