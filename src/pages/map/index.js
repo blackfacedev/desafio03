@@ -20,6 +20,8 @@ class Map extends Component {
     showModal: false,
     inputUser: '',
     loading: false,
+    latitude: 0,
+    longitude: 0,
   };
 
   componentDidMount() {
@@ -45,9 +47,10 @@ class Map extends Component {
   handleMapClick = (e) => {
     const [latitude, longitude] = e.lngLat;
 
-    this.props.addUser({ latitude, longitude });
     this.setState({
       showModal: true,
+      latitude,
+      longitude,
     });
   };
 
@@ -57,6 +60,7 @@ class Map extends Component {
 
   handleAddUser = async (e) => {
     e.preventDefault();
+    const { latitude, longitude } = this.state;
 
     this.setState({
       loading: true,
@@ -65,7 +69,7 @@ class Map extends Component {
 
     try {
       const response = await api.get(`/users/${this.state.inputUser}`);
-      this.props.addUser(response.data);
+      this.props.addUser(response.data, latitude, longitude);
 
       console.log(response);
     } catch (err) {
@@ -110,9 +114,9 @@ class Map extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addUser: payload => dispatch({
+  addUser: (data, latitude, longitude) => dispatch({
     type: 'ADD_USER',
-    payload,
+    payload: { user: data, latitude, longitude },
   }),
 });
 

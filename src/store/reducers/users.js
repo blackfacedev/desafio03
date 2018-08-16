@@ -23,10 +23,10 @@ export default function users(state = INITIAL_STATE, action) {
       return [
         ...state,
         {
-          name: action.payload.name,
-          id: action.payload.id,
-          avatar_url: action.payload.avatar_url,
-          login: action.payload.login,
+          name: action.payload.user.name,
+          id: action.payload.user.id,
+          avatar_url: action.payload.user.avatar_url,
+          login: action.payload.user.login,
           latitude: action.payload.latitude,
           longitude: action.payload.longitude,
         },
